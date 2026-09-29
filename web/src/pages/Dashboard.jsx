@@ -9,7 +9,7 @@ import DemandChart from '../components/DemandChart';
 import ModelPerformance from '../components/ModelPerformance';
 import { loadAllDashboardData } from '../utils/dataLoader';
 
-export default function Dashboard({ onBackToLanding }) {
+export default function Dashboard({ onBackToLanding, initialTab = 'summary' }) {
   const [data, setData] = useState({
     recommendations: [],
     decisionOutput: [],
@@ -19,7 +19,14 @@ export default function Dashboard({ onBackToLanding }) {
   const [loading, setLoading] = useState(true);
 
   // Active Tab: 'summary' | 'risk' | 'action' | 'intelligence' | 'performance'
-  const [activeTab, setActiveTab] = useState('summary');
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Update activeTab if initialTab prop changes
+  useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
 
   // Filters
   const [selectedStore, setSelectedStore] = useState('ALL');

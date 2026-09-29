@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, AlertTriangle, ShieldCheck, Database, Cpu, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
+import { TrendingUp, AlertTriangle, ShieldCheck, Database, Cpu, Sparkles, ArrowRight, UserCheck, BarChart3, CheckCircle2 } from 'lucide-react';
 import Hero from '../components/Hero';
 import FeatureCard from '../components/FeatureCard';
+import ModelPerformance from '../components/ModelPerformance';
 
-export default function Landing({ onOpenDashboard, onOpenLogin }) {
+export default function Landing({ onOpenDashboard, onOpenLogin, demandComp = [], stockoutComp = [] }) {
   // Live Reorder Calculator state
   const [simStore, setSimStore] = useState('S01');
   const [simCat, setSimCat] = useState('Beverages');
@@ -121,15 +122,32 @@ export default function Landing({ onOpenDashboard, onOpenLogin }) {
         </div>
       </section>
 
+      {/* ML Models Showcase Section (ID: models) */}
+      <section id="models" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 mb-3 uppercase">
+            🔬 MACHINE LEARNING ARCHITECTURE & BENCHMARKS
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white cronza-gradient-text">
+            Production Machine Learning Performance
+          </h2>
+          <p className="text-slate-400 mt-2">
+            Rigorous time-aware benchmarking across 7 classical regression and 7 classification algorithms.
+          </p>
+        </div>
+
+        <ModelPerformance demandComp={demandComp} stockoutComp={stockoutComp} />
+      </section>
+
       {/* Live Reorder Simulator */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="simulator">
         <div className="cronza-glass p-8 lg:p-12 rounded-3xl border border-indigo-500/30 bg-gradient-to-br from-slate-900/90 to-indigo-950/40 shadow-2xl">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">
-              ⚡ INTERACTIVE SIMULATOR
+              ⚡ LIVE REORDER CALCULATOR
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-3">
-              Test the Reorder Recommendation Engine
+              Prescriptive Order Simulator
             </h3>
             <p className="text-slate-400 text-sm mt-1">
               Select store parameters to compute instant purchase order recommendations.

@@ -9,15 +9,31 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('landing');
+  const [dashboardSubTab, setDashboardSubTab] = useState('summary');
 
   const handleLoginSuccess = (userData) => {
     setUser(userData);
     setActiveTab('dashboard');
+    setDashboardSubTab('summary');
   };
 
   const handleLogout = () => {
     setUser(null);
     setActiveTab('landing');
+  };
+
+  const handleOpenMLModels = () => {
+    if (activeTab === 'dashboard') {
+      setDashboardSubTab('performance');
+    } else {
+      setActiveTab('landing');
+      setTimeout(() => {
+        const el = document.getElementById('models');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   return (
@@ -29,17 +45,19 @@ export default function App() {
           onLogout={handleLogout}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          onOpenMLModels={handleOpenMLModels}
         />
 
         <main className="pt-6">
           {activeTab === 'landing' ? (
             <Landing
-              onOpenDashboard={() => setActiveTab('dashboard')}
+              onOpenDashboard={() => { setActiveTab('dashboard'); setDashboardSubTab('summary'); }}
               onOpenLogin={() => setIsLoginOpen(true)}
             />
           ) : (
             <Dashboard
               onBackToLanding={() => setActiveTab('landing')}
+              initialTab={dashboardSubTab}
             />
           )}
         </main>

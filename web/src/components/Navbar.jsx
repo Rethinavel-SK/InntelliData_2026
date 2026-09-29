@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import { Zap, LogIn, LayoutDashboard, User, LogOut, Menu, X } from 'lucide-react';
+import { Zap, LogIn, LayoutDashboard, User, LogOut, Menu, X, Cpu } from 'lucide-react';
 
-export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActiveTab }) {
+export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActiveTab, onOpenMLModels }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMLModelsClick = () => {
+    if (onOpenMLModels) {
+      onOpenMLModels();
+    } else {
+      const el = document.getElementById('models');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#0b0f19]/80 backdrop-blur-xl">
@@ -35,10 +46,10 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
             >
               Home
             </button>
-            <a href="#features" className="text-sm font-semibold text-slate-400 hover:text-slate-200 transition-colors">
+            <a href="#features" onClick={() => { if (activeTab !== 'landing') setActiveTab('landing'); }} className="text-sm font-semibold text-slate-400 hover:text-slate-200 transition-colors">
               Features
             </a>
-            <a href="#how-it-works" className="text-sm font-semibold text-slate-400 hover:text-slate-200 transition-colors">
+            <a href="#how-it-works" onClick={() => { if (activeTab !== 'landing') setActiveTab('landing'); }} className="text-sm font-semibold text-slate-400 hover:text-slate-200 transition-colors">
               How it Works
             </a>
             <button
@@ -47,9 +58,13 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
             >
               Dashboard
             </button>
-            <a href="#models" className="text-sm font-semibold text-slate-400 hover:text-slate-200 transition-colors">
-              ML Models
-            </a>
+            <button
+              onClick={handleMLModelsClick}
+              className="text-sm font-semibold text-slate-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5"
+            >
+              <Cpu className="w-4 h-4 text-indigo-400" />
+              <span>ML Models</span>
+            </button>
           </nav>
 
           {/* Action Buttons / Auth */}
@@ -113,6 +128,12 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
             className="block w-full text-left py-2 text-sm font-bold text-indigo-400"
           >
             Dashboard
+          </button>
+          <button
+            onClick={() => { handleMLModelsClick(); setMobileMenuOpen(false); }}
+            className="block w-full text-left py-2 text-sm font-bold text-slate-300"
+          >
+            ML Models
           </button>
           {!user ? (
             <button
