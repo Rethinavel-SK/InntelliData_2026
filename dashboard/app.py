@@ -243,7 +243,7 @@ with tab2:
         disp_df["Stockout_Probability"] = (disp_df["Stockout_Probability"] * 100.0).round(1).astype(str) + "%"
 
     st.dataframe(
-        disp_df.style.applymap(apply_risk_badge_style, subset=["Risk_Level"]),
+        disp_df.style.map(apply_risk_badge_style, subset=["Risk_Level"]),
         use_container_width=True,
         height=450
     )
