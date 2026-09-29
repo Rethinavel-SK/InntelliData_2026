@@ -1,0 +1,9 @@
+kpi_name,value,raw_value,unit,description
+Total Revenue,"₹3,219,276.25",3219276.25,INR (₹),Total gross revenue generated across all 4 stores and 4 products
+Total Units Sold,"61,196",61196.0,Units,Total quantity of units sold across the 46-day period
+Stock-out Rate,0.00%,0.0,Percentage (%),Percentage of store-product days where closing or opening stock reached 0
+Reorder Level Breach Rate,85.46%,85.46195652173914,Percentage (%),Percentage of store-product days where closing inventory dropped to or below reorder level
+Inventory Turnover,635.52x,635.5155209391579,Ratio (x),Total period units sold divided by average closing inventory on hand
+Days of Inventory (DOI),1.16 days,1.1581149094712073,Days,Average inventory coverage depth (average closing stock / average daily demand)
+Promotion Demand Lift,+28.08%,28.08302845971664,Percentage (%),Percentage increase in average daily demand during promotional periods vs non-promotional
+Estimated Lost Sales,0 units (₹0.00),0.0,Units / INR,Estimated unmet demand due to absolute stockout events (0 stockouts recorded in historical period)

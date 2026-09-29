@@ -1,0 +1,28 @@
+<svg width="800" height="480" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; font-family:Inter,system-ui,sans-serif;">
+<text x="400.0" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Product Demand Volatility (Coefficient of Variation %)</text>
+<text x="400.0" y="52" text-anchor="middle" font-size="12" fill="#64748B">Relative volatility index (CV = σ / μ) across product lines</text>
+<rect x="60" y="100" width="680" height="65" fill="#F8FAFC" rx="8" stroke="#E2E8F0"/>
+<text x="80" y="126" font-size="14" font-weight="700" fill="#1E293B">P101 — Dairy</text>
+<text x="80" y="146" font-size="11" fill="#64748B">Mean: 102.9 units | Std Dev: 29.6</text>
+<rect x="340" y="122" width="250" height="20" fill="#E2E8F0" rx="4"/>
+<rect x="340" y="122" width="288.05767595620546" height="20" fill="#EF4444" rx="4"/>
+<text x="610" y="137" font-size="14" font-weight="700" fill="#EF4444">28.81% CV</text>
+<rect x="60" y="340" width="680" height="65" fill="#F8FAFC" rx="8" stroke="#E2E8F0"/>
+<text x="80" y="366" font-size="14" font-weight="700" fill="#1E293B">P442 — Snacks</text>
+<text x="80" y="386" font-size="11" fill="#64748B">Mean: 81.5 units | Std Dev: 22.7</text>
+<rect x="340" y="362" width="250" height="20" fill="#E2E8F0" rx="4"/>
+<rect x="340" y="362" width="278.920096208983" height="20" fill="#3B82F6" rx="4"/>
+<text x="610" y="377" font-size="14" font-weight="700" fill="#3B82F6">27.89% CV</text>
+<rect x="60" y="180" width="680" height="65" fill="#F8FAFC" rx="8" stroke="#E2E8F0"/>
+<text x="80" y="206" font-size="14" font-weight="700" fill="#1E293B">P205 — Personal Care</text>
+<text x="80" y="226" font-size="11" fill="#64748B">Mean: 19.2 units | Std Dev: 5.1</text>
+<rect x="340" y="202" width="250" height="20" fill="#E2E8F0" rx="4"/>
+<rect x="340" y="202" width="267.9004819628648" height="20" fill="#F59E0B" rx="4"/>
+<text x="610" y="217" font-size="14" font-weight="700" fill="#F59E0B">26.79% CV</text>
+<rect x="60" y="260" width="680" height="65" fill="#F8FAFC" rx="8" stroke="#E2E8F0"/>
+<text x="80" y="286" font-size="14" font-weight="700" fill="#1E293B">P330 — Beverages</text>
+<text x="80" y="306" font-size="11" fill="#64748B">Mean: 129.0 units | Std Dev: 32.7</text>
+<rect x="340" y="282" width="250" height="20" fill="#E2E8F0" rx="4"/>
+<rect x="340" y="282" width="253.40399090517738" height="20" fill="#10B981" rx="4"/>
+<text x="610" y="297" font-size="14" font-weight="700" fill="#10B981">25.34% CV</text>
+</svg>

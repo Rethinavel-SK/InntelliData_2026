@@ -1,0 +1,35 @@
+<svg width="800" height="480" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; font-family:Inter,system-ui,sans-serif;">
+<text x="400.0" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#1E293B">Day-of-Week Customer Demand Distribution</text>
+<text x="400.0" y="52" text-anchor="middle" font-size="12" fill="#64748B">Weekend demand (+10.2%) significantly exceeds weekdays (t = 2.09, p = 0.037)</text>
+<line x1="70" y1="410.0" x2="760" y2="410.0" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4"/>
+<text x="60" y="414.0" text-anchor="end" font-size="11" fill="#64748B">0</text>
+<line x1="70" y1="325.0" x2="760" y2="325.0" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4"/>
+<text x="60" y="329.0" text-anchor="end" font-size="11" fill="#64748B">28</text>
+<line x1="70" y1="240.0" x2="760" y2="240.0" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4"/>
+<text x="60" y="244.0" text-anchor="end" font-size="11" fill="#64748B">56</text>
+<line x1="70" y1="155.00000000000003" x2="760" y2="155.00000000000003" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4"/>
+<text x="60" y="159.00000000000003" text-anchor="end" font-size="11" fill="#64748B">84</text>
+<line x1="70" y1="70.0" x2="760" y2="70.0" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="4"/>
+<text x="60" y="74.0" text-anchor="end" font-size="11" fill="#64748B">111</text>
+<rect x="86.42857142857143" y="165.46153846153845" width="65.71428571428571" height="244.53846153846155" fill="#3B82F6" rx="5"/>
+<text x="119.28571428571428" y="157.46153846153845" text-anchor="middle" font-size="12" font-weight="700" fill="#3B82F6">80.1</text>
+<text x="119.28571428571428" y="432" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Mon</text>
+<rect x="185.0" y="161.37499999999997" width="65.71428571428571" height="248.62500000000003" fill="#3B82F6" rx="5"/>
+<text x="217.85714285714286" y="153.37499999999997" text-anchor="middle" font-size="12" font-weight="700" fill="#3B82F6">81.5</text>
+<text x="217.85714285714286" y="432" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Tue</text>
+<rect x="283.57142857142856" y="159.6995192307692" width="65.71428571428571" height="250.3004807692308" fill="#3B82F6" rx="5"/>
+<text x="316.4285714285714" y="151.6995192307692" text-anchor="middle" font-size="12" font-weight="700" fill="#3B82F6">82.0</text>
+<text x="316.4285714285714" y="432" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Wed</text>
+<rect x="382.14285714285717" y="161.73370726495727" width="65.71428571428571" height="248.26629273504273" fill="#3B82F6" rx="5"/>
+<text x="415.0" y="153.73370726495727" text-anchor="middle" font-size="12" font-weight="700" fill="#3B82F6">81.4</text>
+<text x="415.0" y="432" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Thu</text>
+<rect x="480.7142857142857" y="171.74572649572647" width="65.71428571428571" height="238.25427350427353" fill="#3B82F6" rx="5"/>
+<text x="513.5714285714286" y="163.74572649572647" text-anchor="middle" font-size="12" font-weight="700" fill="#3B82F6">78.1</text>
+<text x="513.5714285714286" y="432" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Fri</text>
+<rect x="579.2857142857143" y="139.525641025641" width="65.71428571428571" height="270.474358974359" fill="#F59E0B" rx="5"/>
+<text x="612.1428571428572" y="131.525641025641" text-anchor="middle" font-size="12" font-weight="700" fill="#F59E0B">88.6</text>
+<text x="612.1428571428572" y="432" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Sat</text>
+<rect x="677.8571428571429" y="138.0" width="65.71428571428571" height="272.0" fill="#F59E0B" rx="5"/>
+<text x="710.7142857142858" y="130.0" text-anchor="middle" font-size="12" font-weight="700" fill="#F59E0B">89.1</text>
+<text x="710.7142857142858" y="432" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Sun</text>
+</svg>
