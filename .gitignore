@@ -4,3 +4,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .ipynb_checkpoints/
+.agents/
+.claude/
+web/node_modules/
+web/dist/
