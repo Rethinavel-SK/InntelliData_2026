@@ -1,0 +1,6 @@
+dataset,issue,records_affected,action_taken,justification
+transactions.csv,Duplicate Transaction Records,1,Removed exact duplicate rows,"Exact duplicate transaction entries (e.g., duplicate T1001) distort revenue and units sold counts."
+transactions.csv,Invalid Non-Positive Quantity,1,Filtered out transactions with quantity <= 0,Quantities <= 0 (e.g. quantity == -2 in T1003) represent erroneous or unconfirmed returns that distort point-of-sale customer demand.
+products.csv,Inconsistent Category Casing,1,Standardized product category and sub_category to Title Case,Unified casing (e.g. 'beverages' -> 'Beverages') ensures accurate grouping in category-level demand aggregation.
+inventory.csv,Inventory Consistency Check,0,Verified formula closing = opening + received - sold across all rows (100% pass),All 736 inventory balance records match perfectly; validated and marked with consistency flag.
+external_factors.csv,Missing Temperature Values (NaN),1,Imputed missing temperature using city-specific linear time-series interpolation,Daily temperature exhibits strong temporal continuity within the same city; linear interpolation accurately reflects local weather trends without bias.

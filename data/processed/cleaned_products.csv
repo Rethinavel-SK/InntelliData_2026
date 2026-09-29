@@ -1,0 +1,5 @@
+product_id,category,sub_category,brand,mrp,cost_price,shelf_life_days,supplier_id
+P101,Dairy,Milk,Aavin,60,52,3,SUP01
+P205,Personal Care,Shampoo,GlowCare,120,79,730,SUP08
+P330,Beverages,Soft Drink,FizzUp,50,31,180,SUP04
+P442,Snacks,Biscuits,Crispo,35,22,240,SUP06

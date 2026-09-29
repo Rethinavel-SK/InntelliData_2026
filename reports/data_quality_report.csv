@@ -1,0 +1,5 @@
+issue,dataset,count,action_required,description
+Missing Values,external_factors.csv,1,"Impute missing values (e.g., mean/median or forward-fill) or verify source",Found 1 missing (NaN) value(s) in column 'temp_c'
+Duplicate Rows,transactions.csv,1,Deduplicate records (drop identical rows),Found 1 exact duplicate row(s) in transactions.csv
+Invalid Quantity (<= 0),transactions.csv,1,Clean or filter out transactions with non-positive quantities (e.g. quantity == -1),Found 1 transaction(s) with quantity <= 0
+Inconsistent Category Casing,products.csv,1,Standardize product category naming and casing (e.g. Title Case 'Beverages'),"Inconsistent category formatting found: ['beverages'] (e.g., lowercase 'beverages')"
