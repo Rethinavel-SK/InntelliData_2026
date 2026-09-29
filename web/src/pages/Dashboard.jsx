@@ -48,16 +48,33 @@ export default function Dashboard({ onBackToLanding, initialTab = 'summary' }) {
 
   // Filter recommendations
   const filteredRec = recData.filter(r => {
-    if (selectedStore !== 'ALL' && r.Store !== selectedStore) return false;
-    if (selectedCategory !== 'ALL' && r.Category !== selectedCategory) return false;
-    if (selectedRisk !== 'ALL' && r.Risk_Level !== selectedRisk) return false;
+    const store = r.Store || r.store_id;
+    const cat = r.Category || r.category;
+    const risk = r.Risk_Level || r.risk_level;
+
+    if (selectedStore !== 'ALL' && store !== selectedStore) return false;
+    if (selectedCategory !== 'ALL' && cat !== selectedCategory) return false;
+    if (selectedRisk !== 'ALL' && risk !== selectedRisk) return false;
     return true;
   });
 
-  // Calculate KPIs
-  const totalRev = decData.reduce((acc, curr) => acc + (Number(curr.tx_total_revenue) || 0), 0);
-  const totalUnits = decData.reduce((acc, curr) => acc + (Number(curr.daily_demand) || 0), 0);
-  const highRiskCount = filteredRec.filter(r => r.Risk_Level === 'HIGH').length;
+  // Filter decision data for charts and KPIs
+  const filteredDec = decData.filter(r => {
+    const store = r.store_id || r.Store;
+    const cat = r.category || r.Category;
+    const risk = r.risk_level || r.Risk_Level;
+
+    if (selectedStore !== 'ALL' && store !== selectedStore) return false;
+    if (selectedCategory !== 'ALL' && cat !== selectedCategory) return false;
+    if (selectedRisk !== 'ALL' && risk !== selectedRisk) return false;
+    return true;
+  });
+
+  // Calculate KPIs (using filtered dataset if filters applied, fallback to total if no filter matches or all)
+  const activeDec = filteredDec.length > 0 ? filteredDec : decData;
+  const totalRev = activeDec.reduce((acc, curr) => acc + (Number(curr.tx_total_revenue) || 0), 0);
+  const totalUnits = activeDec.reduce((acc, curr) => acc + (Number(curr.daily_demand) || 0), 0);
+  const highRiskCount = filteredRec.filter(r => (r.Risk_Level || r.risk_level) === 'HIGH').length;
   const reorderCount = filteredRec.filter(r => Number(r.Recommended_Order_Qty) > 0).length;
 
   if (loading) {
@@ -216,7 +233,7 @@ export default function Dashboard({ onBackToLanding, initialTab = 'summary' }) {
             />
           </div>
 
-          <DemandChart decisionData={decData} />
+          <DemandChart decisionData={filteredDec} selectedStore={selectedStore} selectedCategory={selectedCategory} />
         </div>
       )}
 
@@ -251,7 +268,7 @@ export default function Dashboard({ onBackToLanding, initialTab = 'summary' }) {
       {/* TAB 4: DEMAND INTELLIGENCE */}
       {activeTab === 'intelligence' && (
         <div className="space-y-6">
-          <DemandChart decisionData={decData} />
+          <DemandChart decisionData={filteredDec} selectedStore={selectedStore} selectedCategory={selectedCategory} />
         </div>
       )}
 
