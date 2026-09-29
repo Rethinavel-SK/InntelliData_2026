@@ -6,26 +6,32 @@ import FeatureSection from '../components/FeatureSection';
 import CtaBanner from '../components/CtaBanner';
 import ModelPerformance from '../components/ModelPerformance';
 
-export default function Landing({ onOpenDashboard, onOpenLogin, recommendations = [], demandComp = [], stockoutComp = [] }) {
+export default function Landing({ onOpenDashboard, recommendations = [], demandComp = [], stockoutComp = [] }) {
   return (
     <div className="space-y-12">
       {/* 1. Hero Section matching top screenshot */}
-      <Hero onOpenDashboard={onOpenDashboard} onOpenLogin={onOpenLogin} />
+      <div id="home">
+        <Hero onOpenDashboard={onOpenDashboard} />
+      </div>
 
-      {/* 2. Top Performing Ticker Row matching screenshot section 2 */}
+      {/* 2. Top Performing Ticker Row */}
       <StockTicker />
 
-      {/* 3. Market Section with Left Category Sidebar & Data Table matching screenshot section 4 */}
-      <MarketSection recommendations={recommendations} onOpenDashboard={onOpenDashboard} />
+      {/* 3. Market Activity Section */}
+      <div id="features">
+        <MarketSection recommendations={recommendations} onOpenDashboard={onOpenDashboard} />
+      </div>
 
-      {/* 4. Feature Section with Circular Green Icon Badges matching screenshot section 5 */}
-      <FeatureSection />
+      {/* 4. News & Insight / Feature Section */}
+      <div id="how-it-works">
+        <FeatureSection />
+      </div>
 
-      {/* 5. CTA Banner matching screenshot section 6 */}
+      {/* 5. CTA Banner */}
       <CtaBanner onOpenDashboard={onOpenDashboard} />
 
-      {/* 6. ML Models Benchmark Section (id="models") */}
-      <section id="models" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* 6. ML Models Benchmark Section */}
+      <section id="models" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-24">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 mb-3 uppercase">
             🔬 MACHINE LEARNING BENCHMARKS

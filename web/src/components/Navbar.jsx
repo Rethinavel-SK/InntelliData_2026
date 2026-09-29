@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Zap, LogIn, LayoutDashboard, Search, Menu, X, LogOut, ArrowUpRight, Cpu } from 'lucide-react';
+import { Zap, LayoutDashboard, Search, Menu, X, ArrowUpRight, Cpu } from 'lucide-react';
 
-export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActiveTab, onOpenMLModels }) {
+export default function Navbar({ activeTab, setActiveTab, onOpenMLModels }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -12,12 +12,16 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
         const el = document.getElementById(sectionId);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }, 150);
     } else {
       const el = document.getElementById(sectionId);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
   };
@@ -37,7 +41,7 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
           
           {/* Logo */}
           <div
-            onClick={() => setActiveTab('landing')}
+            onClick={() => { setActiveTab('landing'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-emerald-500/30 group-hover:scale-105 transition-transform">
@@ -54,7 +58,7 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
             </div>
           </div>
 
-          {/* Center Links (Pill Style from Screenshot) */}
+          {/* Center Links */}
           <div className="hidden lg:flex items-center bg-slate-900/90 border border-white/10 rounded-full px-6 py-2 shadow-inner">
             <nav className="flex items-center gap-6 text-xs font-bold tracking-wide">
               <button
@@ -82,7 +86,7 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
                 onClick={() => setActiveTab('dashboard')}
                 className={`transition-colors ${activeTab === 'dashboard' ? 'text-emerald-400 font-extrabold' : 'text-slate-300 hover:text-white'}`}
               >
-                Solution
+                Dashboard
               </button>
 
               <button
@@ -92,17 +96,10 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
                 <Cpu className="w-3.5 h-3.5 text-emerald-400" />
                 <span>ML Models</span>
               </button>
-
-              <button
-                onClick={() => handleSectionNavigate('team')}
-                className="text-slate-300 hover:text-emerald-400 transition-colors"
-              >
-                About
-              </button>
             </nav>
           </div>
 
-          {/* Right Actions & Search */}
+          {/* Right Actions */}
           <div className="hidden md:flex items-center gap-4">
             <div className="relative">
               <input
@@ -114,25 +111,6 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
               />
               <Search className="w-3.5 h-3.5 absolute right-3 top-2.5 text-slate-400" />
             </div>
-
-            {user ? (
-              <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full">
-                <div className="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black">
-                  {user.name[0]}
-                </div>
-                <span className="text-xs font-bold text-white">{user.name}</span>
-                <button onClick={onLogout} className="text-slate-400 hover:text-rose-400 transition-colors ml-1">
-                  <LogOut className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={onOpenLogin}
-                className="text-xs font-bold text-slate-300 hover:text-white px-4 py-2 rounded-full border border-white/10 hover:border-white/20 transition-all"
-              >
-                Login
-              </button>
-            )}
 
             <button
               onClick={() => setActiveTab('dashboard')}
@@ -159,7 +137,7 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-white/10 bg-[#0b0f17] px-4 pt-3 pb-6 space-y-3">
           <button
-            onClick={() => { setActiveTab('landing'); setMobileMenuOpen(false); }}
+            onClick={() => { setActiveTab('landing'); window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileMenuOpen(false); }}
             className="block w-full text-left py-2 text-sm font-bold text-slate-300"
           >
             Home
@@ -169,6 +147,12 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
             className="block w-full text-left py-2 text-sm font-bold text-slate-300"
           >
             Market Activity
+          </button>
+          <button
+            onClick={() => { handleSectionNavigate('how-it-works'); setMobileMenuOpen(false); }}
+            className="block w-full text-left py-2 text-sm font-bold text-slate-300"
+          >
+            News & Insight
           </button>
           <button
             onClick={() => { setActiveTab('dashboard'); setMobileMenuOpen(false); }}
@@ -182,21 +166,6 @@ export default function Navbar({ onOpenLogin, user, onLogout, activeTab, setActi
           >
             ML Models
           </button>
-          {!user ? (
-            <button
-              onClick={() => { onOpenLogin(); setMobileMenuOpen(false); }}
-              className="block w-full text-left py-2 text-sm font-bold text-slate-300"
-            >
-              Login
-            </button>
-          ) : (
-            <button
-              onClick={onLogout}
-              className="block w-full text-left py-2 text-sm font-bold text-rose-400"
-            >
-              Sign Out ({user.name})
-            </button>
-          )}
         </div>
       )}
     </header>

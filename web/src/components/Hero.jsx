@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, TrendingUp, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
-export default function Hero({ onOpenDashboard, onOpenLogin }) {
+export default function Hero({ onOpenDashboard }) {
   return (
     <section className="relative pt-8 pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
