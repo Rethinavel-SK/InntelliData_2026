@@ -4,46 +4,74 @@
 
 @layer base {
   body {
-    background-color: #0b0f19;
+    background-color: #0b0f17;
     background-image: 
-      radial-gradient(circle at 50% -20%, #1e1b4b 0%, transparent 60%),
+      radial-gradient(circle at 50% -10%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
       radial-gradient(circle at 90% 40%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
-      radial-gradient(circle at 10% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 10% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
     min-height: 100vh;
+    color: #f8fafc;
   }
 }
 
-.cronza-glass {
-  background: rgba(17, 24, 39, 0.7);
+/* Emerald Dark Glassmorphism Styling matching screenshot */
+.stocksense-glass {
+  background: rgba(15, 21, 32, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.cronza-glass-hover {
+.stocksense-glass-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.cronza-glass-hover:hover {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+.stocksense-glass-hover:hover {
+  background: rgba(20, 29, 44, 0.9);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.3);
   transform: translateY(-2px);
 }
 
-.cronza-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 40%, #818cf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-emerald-glow {
+  color: #10b981;
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
 
-.cronza-glow-button {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+.btn-emerald-glow {
+  background: #00e699;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #042f2e;
+  font-weight: 800;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
   transition: all 0.3s ease;
 }
 
-.cronza-glow-button:hover {
-  box-shadow: 0 0 35px rgba(99, 102, 241, 0.7);
+.btn-emerald-glow:hover {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.7);
   transform: translateY(-2px);
+}
+
+.btn-emerald-outline {
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.08);
+  transition: all 0.3s ease;
+}
+
+.btn-emerald-outline:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+/* Custom Table Styling matching screenshot */
+.market-table-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.2s;
+}
+
+.market-table-row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
 }

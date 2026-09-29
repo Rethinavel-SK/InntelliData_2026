@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import LoginModal from './components/LoginModal';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
-import Footer from './components/Footer';
+import NewsletterFooter from './components/NewsletterFooter';
+import { loadAllDashboardData } from './utils/dataLoader';
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('landing');
   const [dashboardSubTab, setDashboardSubTab] = useState('summary');
+  const [appData, setAppData] = useState({
+    recommendations: [],
+    demandComparison: [],
+    stockoutComparison: []
+  });
+
+  useEffect(() => {
+    async function init() {
+      const res = await loadAllDashboardData();
+      setAppData(res);
+    }
+    init();
+  }, []);
 
   const handleLoginSuccess = (userData) => {
     setUser(userData);
@@ -48,11 +62,14 @@ export default function App() {
           onOpenMLModels={handleOpenMLModels}
         />
 
-        <main className="pt-6">
+        <main className="pt-2">
           {activeTab === 'landing' ? (
             <Landing
               onOpenDashboard={() => { setActiveTab('dashboard'); setDashboardSubTab('summary'); }}
               onOpenLogin={() => setIsLoginOpen(true)}
+              recommendations={appData.recommendations}
+              demandComp={appData.demandComparison}
+              stockoutComp={appData.stockoutComparison}
             />
           ) : (
             <Dashboard
@@ -63,7 +80,7 @@ export default function App() {
         </main>
       </div>
 
-      <Footer />
+      <NewsletterFooter />
 
       <LoginModal
         isOpen={isLoginOpen}
