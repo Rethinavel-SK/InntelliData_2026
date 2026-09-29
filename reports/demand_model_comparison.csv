@@ -1,0 +1,8 @@
+model,mae,rmse,mape_pct,r2_score
+Random Forest,17.36,23.09,3.08,0.9947
+Decision Tree,19.64,28.88,3.39,0.9918
+KNN Regressor,25.79,36.17,4.99,0.9871
+Linear Regression,25.99,31.82,7.58,0.99
+Baseline (7-Day Rolling Sum),27.36,35.39,5.25,0.9876
+XGBoost,28.92,51.76,5.08,0.9735
+Support Vector Regressor (SVR),127.84,175.19,44.25,0.6969
